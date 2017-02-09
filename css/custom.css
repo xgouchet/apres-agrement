@@ -1,0 +1,62 @@
+* {
+/*    transition : all 0.25s;*/
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+ul.collection:empty{
+  display: none;
+}
+
+.years :hover {
+	background-color : #FF0000;
+}
+
+input[type="range"]:before {
+    left:0em;
+    content: attr(min);
+	padding : 8px;
+}
+input[type="range"]:after {
+    right: 0em;
+    content: attr(max);
+	padding : 8px;
+}
+a {
+    cursor : pointer;
+}
+
+ul.statistics{
+    display:flex;
+    justify-content : space-around;
+}
+
+ul.statistics li{
+    display:inline;
+}
+
+.chip {
+    margin : 4px 8px;
+}
+.chip:hover{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.comment:before {
+    content : 'ⓘ';
+    font-weight:bold;
+    font-size: 16px;
+}
+.warning:before {
+    content : '⚠ ';
+    font-weight:bold;
+    font-size: 18px;
+}
