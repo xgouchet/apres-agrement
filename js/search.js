@@ -117,7 +117,7 @@ function displayResults() {
 
             "&nbsp;",
             a(
-                {href:country.url, style:'width:48px; text-align:right;'},
+                {href:'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/comment-adopter-a-l-etranger/les-fiches-pays-de-l-adoption-internationale/fiches-pays-adoption/article/' + country.url, style:'width:48px; text-align:right;'},
                 em({cls:'material-icons',style:'font-size:20px', title:"Voir la fiche pays"}, 'open_in_new')
             )
         );
@@ -137,7 +137,11 @@ function displayResults() {
     });
 
     Jaml.register('stat', function(stat) {
-        li(strong('' + stat.year), ' : ' + stat.count);
+        li(
+            strong('' + stat.year),
+            ' : ' ,
+            span({cls : stat.delta == '↘' ? 'red-text darken-4' : stat.delta == '↗' ? 'green-text darken-4' : ''}, stat.delta + '&nbsp;' + stat.count)
+        );
     });
 
     countries.forEach(processCountry);
@@ -145,6 +149,7 @@ function displayResults() {
 
 function processCountry(country) {
 
+    console.log("Hey ! ");
     var allowed = true;
     var orgs = [];
     if (country.constraints) {
@@ -152,7 +157,7 @@ function processCountry(country) {
     }
     orgs = organizations.filter(function(org){
         if (org.countries.indexOf(country.code) < 0) {
-            //return false;
+            return false;
         }
         if (org.counties.indexOf(county) < 0) {
             return county == "all";
@@ -162,6 +167,7 @@ function processCountry(country) {
 
     var region_allowed = (getParamByName('region_' + country.region) == 'on');
 
+    console.log(country.name + " : " + allowed + " / " + orgs.length + " / " + region_allowed);
     if (allowed && (orgs.length > 0) && region_allowed) {
 
         div = document.createElement('div');
@@ -207,8 +213,14 @@ function processCountry(country) {
             stats = document.createElement('ul');
             stats.className = 'statistics';
             content.appendChild(stats);
+            var previous = undefined;
             country.stats.forEach(function(stat){
-                stats.insertAdjacentHTML('beforeend', Jaml.render('stat', stat));
+                if (previous) {
+                    stat.delta = (stat.count > previous.count) ? '↗' : (stat.count < previous.count) ? '↘' : previous.delta;
+                    if (stat.delta == undefined) stat.delta = '=';
+                    stats.insertAdjacentHTML('beforeend', Jaml.render('stat', stat));
+                }
+                previous = stat;
             });
         }
     }
