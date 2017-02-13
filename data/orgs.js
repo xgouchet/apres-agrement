@@ -2,9 +2,9 @@ var organizations = [
     {
         'name' : 'AFA',
         'url' : 'http://www.agence-adoption.fr/',
-        'countries' : [ 'BF', 'MG', 'ML', 'Togo', // Afrique
-                        'CL', 'CO', 'HT', 'MX', 'PE', 'Rep. DOm', //Latam
-                        'KH', 'CN', 'IN', 'PH', 'LK', 'Thai', 'VN', //Asia
+        'countries' : [ 'BF', 'MG', 'ML', 'TG', // Afrique
+                        'CL', 'CO', 'HT', 'MX', 'PE', 'DO', //Latam
+                        'KH', 'CN', 'IN', 'PH', 'LK', 'TH', 'VN', //Asia
                         'AL', 'AZ', 'BG', 'HU', 'LV', 'LT', 'PO', 'RO', 'RU' // Europe
                       ],
         'counties' :  [ '01', '02', '03', '04', '05', '06', '07', '08', '09', 
@@ -132,7 +132,7 @@ var organizations = [
     {
         'name' : 'COFA - Cognac',
         'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/cofa-cognac',
-        'countries' : [ 'BR', 'HT' ],
+        'countries' : [ 'BR', 'HT', 'VN' ],
         'counties' :  [ '01', '02', '03', '04', '05', '06', '07', '08', '09', 
                         '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 
                         '2A', '2B', '21', '22', '23', '24', '25', '26', '27', '28', '29', 
@@ -179,7 +179,7 @@ var organizations = [
     {
         'name' : 'COFA - Marseille',
         'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/cofa-marseille',
-        'countries' : [ 'CN', 'IN', 'NP' ],
+        'countries' : [ 'CN', 'IN', 'NP', 'VN' ],
         'counties' :  [ '01', '02', '03', '04', '05', '06', '07', '08', '09', 
                         '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 
                         '2A', '2B', '21', '22', '23', '24', '25', '26', '27', '28', '29', 
@@ -253,7 +253,7 @@ var organizations = [
     {
         'name' : 'Enfance Avenir',
         'url' : 'http://www.enfanceavenir.org/',
-        'countries' : [ 'KZ', 'MG', 'RU' ],
+        'countries' : [ 'KZ', 'MG', 'RU', 'VN' ],
         'counties' :  [ '01', '05', '06', '07', '09', 
                         '10', '11', '12', '13', '14', '16', '17', '18', 
                         '21', '22', '24', '25', '26', '27', '28', '29', 
@@ -318,10 +318,18 @@ var organizations = [
     },
     {
         'name' : 'La Providence',
-        'url' : '',
-        'countries' : [],
-        'counties' :  []
+        'url' : 'http://www.oaa-laprovidence.com/',
+        'countries' : [ 'VN' ],
+        'counties' :  [ '02', '04', '05', '06', '07', '09', '10', '13', '15', '16', '17', 
+                        '2A', '2B', '22', '23', '24', '25', '26', '27', '28', '29', 
+                        '30', '31', '33', '34', '35', '37', '39', 
+                        '40', '42', '44', '45', '46', '47', '48', '49', 
+                        '50', '53', '55', '56', '59', '60', '63', '64', '65', '68', '69', 
+                        '70', '71', '73', '74', '75', '76', '77', '78', '79', 
+                        '80', '83', '84', '85', '86', '87', '89', 
+                        '91', '92', '93', '94', '95', '974']
     },
+
     {
         'name' : 'Les Enfants avant Tout',
         'url' : 'http://lesenfantsavanttout.net/',
@@ -363,7 +371,7 @@ var organizations = [
     {
         'name' : 'Lumière des Enfants',
         'url' : 'http://lumiere-des-enfants.org/',
-        'countries' : [ 'BF', 'CG', 'CI', 'HT', 'MG', 'NG' ],
+        'countries' : [ 'BF', 'CG', 'CI', 'HT', 'MG', 'NG', 'TG' ],
         'counties' :  [ '02', '04', '06', '13', '16', '17', '18', 
                         '22', '24', '25', '27', '28', '29', 
                         '30', '31', '32', '33', '35', '36', '37', '39', 
@@ -377,7 +385,7 @@ var organizations = [
     {
         'name' : 'Médecins du Monde',
         'url' : 'http://www.medecinsdumonde.org/',
-        'countries' : [ 'AL', 'BR' , 'BG', 'CN', 'CO', 'CI', 'HT', 'MG', 'PH' ],
+        'countries' : [ 'AL', 'BR' , 'BG', 'CN', 'CO', 'CI', 'HT', 'MG', 'PH', 'UA', 'VN' ],
         'counties' :  [ '01', '02', '03', '04', '05', '06', '07', '08', '09', 
                         '10', '11', '12', '13', '14', '16', '17', '19',
                         '2A', '2B', '21', '22', '23', '24', '25', '26', '27', '28', '29',
@@ -389,12 +397,21 @@ var organizations = [
                         '80','81','82','83','84','85','86','87','88','89',
                         '90','91','92','93','94','95' ]
     },
-    */
+     */
     {
         'name' : 'Orchidée Adoption',
-        'url' : '',
-        'countries' : [],
-        'counties' :  []
+        'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/orchidee-adoption',
+        'countries' : [ 'TH' ],
+        'counties' :  [ '01', '02', '03', '04', '05', '06', '07', '08', '09', 
+                        '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 
+                        '21', '22', '23', '24', '25', '26', '27', '28', '29', 
+                        '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', 
+                        '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', 
+                        '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', 
+                        '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', 
+                        '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', 
+                        '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', 
+                        '90', '91', '92', '93', '94', '95']
     },
     {
         'name' : 'Païdia',
@@ -463,11 +480,5 @@ var organizations = [
                         '70', '71', '72', '74', '75', '76', '77', '78', '79', 
                         '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', 
                         '90', '91', '92', '93', '94', '95', '974']
-    },
-    {
-        'name' : 'Magic',
-        'url' : '',
-        'countries' : [],
-        'counties' :  [ '99' ]
     }
 ];

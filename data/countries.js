@@ -1780,6 +1780,202 @@ var countries = [
         ]
     },
     {
+        'name' : 'Tchad',
+        'code' : 'TD',
+        'region' : 'africa',
+        'url' : 'adopter-au-tchad',
+        'comments' : [
+            "Les adoptants ne doivent avoir au jour de la requête ni enfants, ni descendants légitimes."
+        ],
+        'constraints' : [
+            {
+                'type' : 'status',
+                'value' : 'married_couple'
+            },
+            {
+                'type' : 'marriage',
+                'value' : 'min 8'
+            },
+            {
+                'type' : 'age',
+                'value' : 'at least one min 30'
+            },
+            {
+                'type' : 'age_gap',
+                'value' : 'min 15'
+            }
+        ],
+        'stats' : [
+            { 'year' : 2012, 'count' : 1 },
+            { 'year' : 2013, 'count' : 1 },
+            { 'year' : 2014, 'count' : 3 },
+            { 'year' : 2015, 'count' : 0 },
+            { 'year' : 2016, 'count' : 0 }
+        ]
+    },
+    {
+        'name' : 'Thaïlande',
+        'code' : 'TH',
+        'region' : 'asia',
+        'url' : 'adopter-en-thailande',
+        'clh' : { 'signed' : 2004, 'applied' : 2004 },
+        'warnings' : [
+            "Depuis 2005, du fait de l’application du principe de subsidiarité posé par la Convention de La Haye du 29 mai 1993, le nombre d’enfants proposés à l’adoption internationale en Thaïlande a diminué, conduisant les autorités thaïlandaises à fixer annuellement un quota, par pays et par opérateur, pour l’envoi de nouvelles candidatures, dont le projet concerne des enfants jeunes sans particularité.<br/>En 2010 et 2011, seuls les dossiers concernant l’adoption d’enfants à besoins spécifiques ont pu être déposés auprès de l’Autorité centrale thaïlandaise par l’AFA et l’OAA Orchidée Adoption.<br/>En 2012, les opérateurs français ont de nouveau été autorisés à adresser un nombre limité de dossiers (cinq) pour des enfants ne présentant pas de particularités."
+        ],
+        'comments' : [
+            "Les textes thaïlandais ne comportent aucune disposition relative à l’existence d’enfants dans le foyer des candidats à l’adoption. Toutefois, dans la pratique, les candidatures des couples ayant déjà 2 enfants ou plus ont de faibles chances d’être retenues par le DCY, sauf dans l’hypothèse des projets d’adoption concernant des enfants à besoins spécifiques."
+        ],
+        'constraints' : [
+            {
+                'type' : 'status',
+                'value' : 'married_couple'
+            },
+            {
+                'type' : 'marriage',
+                'value' : 'min 2'
+            },
+            {
+                'type' : 'age',
+                'value' : 'min 25'
+            },
+            {
+                'type' : 'age_gap',
+                'value' : 'min 15 max 40'
+            }
+        ],
+        'stats' : [
+            { 'year' : 2012, 'count' : 37 },
+            { 'year' : 2013, 'count' : 51 },
+            { 'year' : 2014, 'count' : 57 },
+            { 'year' : 2015, 'count' : 41 },
+            { 'year' : 2016, 'count' : 46 }
+        ]
+    },
+    {
+        'name' : 'Togo',
+        'code' : 'TG',
+        'region' : 'africa',
+        'url' : 'adopter-au-togo',
+        'clh' : { 'signed' : 2009, 'applied' : 2010 },
+        'constraints' : [
+            {
+                'type' : 'status',
+                'value' : 'married_couple'
+            },
+            {
+                'type' : 'age',
+                'value' : 'at least one min 30'
+            },
+            {
+                'type' : 'age_gap',
+                'value' : 'min 18'
+            }
+        ],
+        'stats' : [
+            { 'year' : 2012, 'count' : 14 },
+            { 'year' : 2013, 'count' : 2 },
+            { 'year' : 2014, 'count' : 13 },
+            { 'year' : 2015, 'count' : 6 },
+            { 'year' : 2016, 'count' : 5 }
+        ]
+    },
+    {
+        'name' : 'Tunisie',
+        'code' : 'TN',
+        'region' : 'africa',
+        'url' : 'adopter-en-tunisie',
+        'comments' : [
+            "Les candidats à l’adoption doivent être de nationalité tunisienne et de religion musulmane.",
+            "Les demandes d’adoption émanant de personnes étrangères ou même tunisiennes non musulmanes ne peuvent être recevables. Le critère religieux et de nationalité tunisienne est exigé pour les deux membres du couple. Ce principe peut être assoupli dès lors que la famille réside en Tunisie et que le chef de famille remplit ces conditions ou que les deux membres du couple sont musulmans résidant dans un pays arabe et musulman ou si le candidat à l’adoption a des attaches familiales tunisiennes."
+        ],
+        'constraints' : [
+            {
+                'type' : 'status',
+                'value' : 'married_couple'
+            },
+            {
+                'type' : 'age',
+                'value' : 'min 20'
+            },
+            {
+                'type' : 'age_gap',
+                'value' : 'min 15'
+            }
+        ],
+        'stats' : [
+            { 'year' : 2012, 'count' : 43 },
+            { 'year' : 2013, 'count' : 27 },
+            { 'year' : 2014, 'count' : 22 },
+            { 'year' : 2015, 'count' : 19 },
+            { 'year' : 2016, 'count' : 19 }
+        ]
+    },
+    {
+        'name' : 'Turquie',
+        'code' : 'TR',
+        'region' : 'asia',
+        'url' : 'adopter-en-turquie',
+        'clh' : { 'signed' : 2001, 'applied' : 2004 },
+        'warnings' : [
+            "Dans le respect du principe de subsidiarité (article 4 b de la CLH 93) et en raison du nombre important de candidatures locales turques à l’adoption nationale, l’Autorité Centrale turque a informé la MAI le 03.02.2016 qu’aucune suite favorable ne pouvait être réservée aux dossiers de candidature à l’adoption internationale. Les candidats sont invités à s’orienter vers un autre pays."
+        ],
+        'stats' : [
+            { 'year' : 2012, 'count' : 3 },
+            { 'year' : 2013, 'count' : 1 },
+            { 'year' : 2014, 'count' : 1 },
+            { 'year' : 2015, 'count' : 0 },
+            { 'year' : 2016, 'count' : 0 }
+        ]
+    },
+    {
+        'name' : 'Ukraine',
+        'code' : 'UA',
+        'region' : 'europe',
+        'url' : 'adopter-en-ukraine',
+        'warnings' : [
+            "Les candidats désirant adopter un enfant invalide seront prioritaires.",
+            "Le Centre des Adoptions (SDA) ne peut pas répondre positivement à l’orientation des projets d’adoption des candidats français, tournés exclusivement vers des enfants en bas âge avec des problèmes de santé mineurs. Selon les statistiques en sa possession, il est pratiquement impossible au SDA de satisfaire les demandes d’adoption d’enfants de moins de 6 ans sans problème de santé. Les enfants de moins de 6 ans sont peu nombreux et souffrent de graves problèmes de santé (infection au VIH, hépatite C, troubles mentaux, trisomie)."
+        ],
+        'constraints' : [
+            {
+                'type' : 'status',
+                'value' : 'married_couple'
+            },
+            {
+                'type' : 'age_gap',
+                'value' : 'min 18 max 45'
+            }
+        ],
+        'stats' : [
+            { 'year' : 2012, 'count' : 21 },
+            { 'year' : 2013, 'count' : 12 },
+            { 'year' : 2014, 'count' : 9 },
+            { 'year' : 2015, 'count' : 5 },
+            { 'year' : 2016, 'count' : 5 }
+        ]
+    },
+    {
+        'name' : 'Uruguay',
+        'code' : 'UY',
+        'region' : 'latam',
+        'url' : 'adopter-en-uruguay',
+        'clh' : { 'signed' : 1993, 'applied' : 2004 },
+        'warnings' : [
+            "Bien que ratifiée, la convention de La Haye n’est pas appliquée. En effet, l’Uruguay n’a toujours pas désigné les autorités compétentes. C’est donc le Code de l’enfance et de l’adolescence (loi du 7 septembre 2004) qui régit encore l’adoption internationale en Uruguay.",
+            "Il est à noter que le taux de natalité uruguayen est actuellement très bas et que, s’agissant d’adoption, la loi en vigueur donne clairement la priorité aux couples ayant leur résidence en Uruguay."
+        ]
+    },
+    {
+        'name' : 'Venezuela',
+        'code' : 'VE',
+        'region' : 'latam',
+        'url' : 'adopter-au-venezuela',
+        'clh' : { 'signed' : 1997, 'applied' : 1997 },
+        'warnings' : [
+            "Concernant l’adoption internationale, une condition de résidence de trois mois au minimum sur place avec l’enfant à adopter, ainsi qu’une position défavorable des autorités locales, font qu’aucune adoption n’a été réalisée dans ce pays depuis l’entrée en vigueur de la Convention de La Haye du 29 mai 1993."
+        ]
+    },
+    {
         'name' : 'Viet Nam',
         'code' : 'VN',
         'region' : 'asia',
