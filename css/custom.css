@@ -41,6 +41,7 @@ ul.statistics{
 
 ul.statistics li{
     display:inline;
+    font-size: 16px;
 }
 
 .chip {
@@ -59,4 +60,26 @@ ul.statistics li{
     content : '⚠ ';
     font-weight:bold;
     font-size: 18px;
+}
+label {
+    font-size: 18px;
+}
+
+ul.nav {
+}
+
+ul.nav li.header {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+ul.nav li {
+    color : #FFFFFF;
+    line-height: 1.5rem;
+    padding: 8px 16px;
+    margin: 0;
+}
+
+ul.nav li a{
+    color : #FFFFFF;
 }

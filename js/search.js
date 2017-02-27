@@ -149,12 +149,17 @@ function displayResults() {
 
 function processCountry(country) {
 
-    console.log("Hey ! ");
-    var allowed = true;
-    var orgs = [];
+    // Constraints verifications
     if (country.constraints) {
-        // TODO check constraints
+        allowed = verifyConstraints(country.constraints);
+        if (!allowed) {
+            console.log("Constraints check × " + country.name + " / " + country.code);
+            return;
+        }
     }
+
+    // OAAs check
+    var orgs = [];
     orgs = organizations.filter(function(org){
         if (org.countries.indexOf(country.code) < 0) {
             return false;
@@ -164,66 +169,135 @@ function processCountry(country) {
         }
         return true;
     });
+    if (orgs.length == 0){
+        // console.log("Orgs check × " + country.name + " / " + country.code);
+        return;
+    }
 
-    var region_allowed = (getParamByName('region_' + country.region) == 'on');
+    // region check
+    if (getParamByName('region_' + country.region) != 'on') {
+        console.log("Region check × " + country.name + " / " + country.code);
+        return;
+    }
 
-    console.log(country.name + " : " + allowed + " / " + orgs.length + " / " + region_allowed);
-    if (allowed && (orgs.length > 0) && region_allowed) {
+    // Ok, we can display it
+    displayCountry(country, orgs);
+}
 
-        div = document.createElement('div');
-        if (country.clh) {
-            div.className = "card blue-grey lighten-5";
-        } else {
-            div.className = "card amber lighten-5";
-        }
-        document.getElementById('result_container').appendChild(div);
+function displayCountry(country, orgs) {
 
-        content = document.createElement('div');
-        content.className = 'card-content';
-        div.appendChild(content);
+    div = document.createElement('div');
+    if (country.clh) {
+        div.className = "card blue-grey lighten-5";
+    } else {
+        div.className = "card amber lighten-5";
+    }
+    document.getElementById('result_container').appendChild(div);
 
-        // Main content
-        content.innerHTML = Jaml.render('country', country);
+    content = document.createElement('div');
+    content.className = 'card-content';
+    div.appendChild(content);
 
-        // Warnings
-        if (country.warnings) {
-            country.warnings.forEach(function (warning) {
-                content.insertAdjacentHTML('beforeend', Jaml.render('warning', warning));
-            });
-        }
+    // Main content
+    content.innerHTML = Jaml.render('country', country);
 
-        // Comments
-        if (country.comments) {
-            country.comments.forEach(function (comment) {
-                content.insertAdjacentHTML('beforeend', Jaml.render('comment', comment));
-            });
-        }
-
-        // OAA chips
-        content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Organismes Agréés pour l\'Adoption</span>');
-        orgsBar = document.createElement('div');
-        content.appendChild(orgsBar);
-        orgs.forEach(function(org) {
-            orgsBar.insertAdjacentHTML('beforeend', Jaml.render('org', org));
+    // Warnings
+    if (country.warnings) {
+        content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Avertissements</span>');
+        country.warnings.forEach(function (warning) {
+            content.insertAdjacentHTML('beforeend', Jaml.render('warning', warning));
         });
+    }
 
-        // Stats
-        if (country.stats) {
-            content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Statistiques</span>');
-            stats = document.createElement('ul');
-            stats.className = 'statistics';
-            content.appendChild(stats);
-            var previous = undefined;
-            country.stats.forEach(function(stat){
-                if (previous) {
-                    stat.delta = (stat.count > previous.count) ? '↗' : (stat.count < previous.count) ? '↘' : previous.delta;
-                    if (stat.delta == undefined) stat.delta = '=';
-                    stats.insertAdjacentHTML('beforeend', Jaml.render('stat', stat));
-                }
-                previous = stat;
-            });
+    // Comments
+    if (country.comments) {
+        content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Informations</span>');
+        country.comments.forEach(function (comment) {
+            content.insertAdjacentHTML('beforeend', Jaml.render('comment', comment));
+        });
+    }
+
+    // Stats
+    if (country.stats) {
+        content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Statistiques</span>');
+        stats = document.createElement('ul');
+        stats.className = 'statistics';
+        content.appendChild(stats);
+        var previous = undefined;
+        country.stats.forEach(function(stat){
+            if (previous) {
+                stat.delta = (stat.count > previous.count) ? '↗' : (stat.count < previous.count) ? '↘' : previous.delta;
+                if (stat.delta == undefined) stat.delta = '=';
+                stats.insertAdjacentHTML('beforeend', Jaml.render('stat', stat));
+            }
+            previous = stat;
+        });
+    }
+
+    // OAA chips
+    content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Organismes Agréés pour l\'Adoption</span>');
+    orgsBar = document.createElement('div');
+    content.appendChild(orgsBar);
+    orgs.forEach(function(org) {
+        orgsBar.insertAdjacentHTML('beforeend', Jaml.render('org', org));
+    });
+
+
+}
+
+function verifyConstraints(constraints) {
+    // Check status
+    if (constraints.status) {
+        if (constraints.status.indexOf(status) == -1) {
+            return false;
         }
     }
+
+    // Check marriage duration
+    if (constraints.marriage && status == 'married_couple') {
+        if (constraints.marriage.min && marriage_duration < constraints.marriage.min) {
+            return false;
+        }
+    }
+
+    // Check age
+    var const_age = undefined;
+    if (constraints.age){
+        const_age = constraints.age;
+    } else if (constraints.age_married_couple && status == 'married_couple') {
+        const_age = constraints.age_married_couple;
+    } else if (constraints.age_single_woman && status == 'single_woman') {
+        const_age = constraints.age_single_woman;
+    } else if (constraints.age_single_man && status == 'single_man') {
+        const_age = constraints.age_single_man;
+    }
+
+    if (const_age) {
+        if (const_age.at_least_one_min && age_max < const_age.at_least_one_min) {
+            return false;
+        }
+        if (const_age.min && age_min < const_age.min) {
+            return false;
+        }
+        if (const_age.max && age_max > const_age.max) {
+            return false;
+        }
+    }
+
+    // Check age_gap (which implies a min/max age
+    if (constraints.age_gap){
+        if (constraints.age_gap.at_least_one_min && age_max < constraints.age_gap.at_least_one_min) {
+            return false;
+        }
+        if (constraints.age_gap.min && age_min < constraints.age_gap.min) {
+            return false;
+        }
+        if (constraints.age_gap.max && age_max > (constraints.age_gap.max + 18)) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 function switchAgeRow() {
@@ -243,21 +317,21 @@ function updateMarriedTip() {
 	var label = document.getElementById('marriage_duration_tip');
 	var range = document.getElementById('marriage_duration');
 
-    label.innerHTML = "depuis " + range.value + " ans";
+    label.innerHTML = "depuis <strong>" + range.value + "</strong> ans";
 }
 function updateAgeTip() {
 
 	var label = document.getElementById('age_tip');
 	var range = document.getElementById('age');
 
-    label.innerHTML = "Vous avez " + range.value + " ans";
+    label.innerHTML = "Vous avez <strong>" + range.value + "</strong> ans";
 }
 function updateAgeSpouseTip() {
 
 	var label = document.getElementById('age_spouse_tip');
 	var range = document.getElementById('age_spouse');
 
-    label.innerHTML = "et " + range.value + " ans";
+    label.innerHTML = "et <strong>" + range.value + "</strong> ans";
 }
 
 function updateAgeChildTips(max_rules = true) {
@@ -278,6 +352,6 @@ function updateAgeChildTips(max_rules = true) {
 		}
 	}
 
-    labelMin.innerHTML = "Entre " + rangeMin.value + " …";
-	labelMax.innerHTML = "… et " + rangeMax.value + " ans";
+    labelMin.innerHTML = "Entre <strong>" + rangeMin.value + "</strong> …";
+	labelMax.innerHTML = "… et <strong>" + rangeMax.value + "</strong> ans";
 }

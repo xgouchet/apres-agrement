@@ -9,7 +9,7 @@
 
             <div class="row">
                 <div class="col s6">
-                    <label>Vous êtes...</label>
+                    <label class="blue-text darken-3">Vous êtes...</label>
                     <select class="browser-default blue-text" id="status" name="status" onchange="switchAgeRow()">
                         <option value="married_couple" selected>un couple marié</option>
                         <option value="single_woman">une femme célibataire</option>
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="col s6 range-field" id="marriage_duration_block">
-                    <label id="marriage_duration_tip">depuis 5 ans</label>
+                    <label id="marriage_duration_tip" class="blue-text darken-3">depuis 5 ans</label>
                     <input type="range" id="marriage_duration" name="marriage_duration" min="0" max="60" value="5" step="1"
                             onchange="updateMarriedTip()" oninput="updateMarriedTip()" />
                 </div>
@@ -26,13 +26,13 @@
 
             <div class="row" >
                 <div class="col s6" id="age_single_block">
-                    <label id="age_tip">Vous avez 28 ans</label>
+                    <label id="age_tip" class="blue-text darken-3">Vous avez 28 ans</label>
                     <input type="range" id="age" name="age" min="28" max="70" value="28" step="1"
     	                    onchange="updateAgeTip()" oninput="updateAgeTip()" />
                 </div>
 
                 <div class="col s6" id="age_spouse_block">
-                    <label id="age_spouse_tip">et 28 ans</label>
+                    <label id="age_spouse_tip" class="blue-text darken-3">et 28 ans</label>
                     <input type="range" id="age_spouse" name="age_spouse" min="28" max="70" value="28" step="1"
 		                    onchange="updateAgeSpouseTip()" oninput="updateAgeSpouseTip()" />
                 </div>
@@ -41,7 +41,7 @@
 
             <div class="row">
                 <div class="col s6">
-                    <label>Vous habitez ...</label>
+                    <label class="blue-text darken-3">Vous habitez ...</label>
                     <select class="browser-default" id="county" name="county">
                         <option value="all"> ALL OF THEM !!! </option>
                         <option value="01">01 Ain</option>
@@ -158,12 +158,12 @@
             <div class="row" id="age_child_block">
 
                 <div class="col s6" id="age_child_min_block">
-                    <label id="age_child_min_tip">Entre 0 …</label>
+                    <label id="age_child_min_tip" class="blue-text darken-3">Entre 0 …</label>
                     <input type="range" id="age_child_min" name="age_child_min" min="0" max="18" value="0" step="1"
 		                    onchange="updateAgeChildTips(false)" oninput="updateAgeChildTips(false)" />
                 </div>
                 <div class="col s6" id="age_child_max_block">
-                    <label id="age_child_max_tip">… et 3 ans</label>
+                    <label id="age_child_max_tip" class="blue-text darken-3">… et 3 ans</label>
                     <input type="range" id="age_child_max" name="age_child_max" min="0" max="18" value="3" step="1"
 		                onchange="updateAgeChildTips()" oninput="updateAgeChildTips()" />
                 </div>
@@ -171,7 +171,7 @@
 
             <div class="row" id="region_block">
                 <div class="col s6">
-                    <label id="region_tip">Préférences d'origine ?</label>
+                    <label id="region_tip" class="blue-text darken-3">Préférences d'origine ?</label>
 		            <p>
 	                    <input type="checkbox" id="region_latam" name="region_latam" checked="true"/>
                         <label for="region_latam">Amérique Latine</label>

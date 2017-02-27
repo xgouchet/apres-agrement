@@ -8,16 +8,10 @@ var countries = [
         'region' : 'africa',
         'clh' : { 'signed' : 2003, 'applied' : 2003 }, 
         'url' : 'adopter-en-afrique-du-sud',
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 18'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age_gap' : { 'min' : 18 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 9 },
             { 'year' : 2013, 'count' : 4 },
@@ -32,16 +26,10 @@ var countries = [
         'region' : 'europe',
         'clh' : { 'signed' : 2000, 'applied' : 2001 },
         'url' : 'adopter-en-albanie',
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 18'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age_gap' : { 'min' : 18 }
+        },
         'warnings' : [
             "Avertissement : L’adoption internationale en Albanie est légalement possible, toutefois : l’adoption internationale est subsidiaire; les enfants adoptables y sont très peu nombreux; les enfants proposés à l’adoption internationale sont généralement âgés de plus de 8 ans ou issus de fratries. Dans ces conditions, une procédure d’adoption menée dans ce pays peut être longue, difficile et sans garantie quant à son aboutissement."
         ],
@@ -68,16 +56,10 @@ var countries = [
         'region' : 'europe',
         'clh' : { 'signed' : 2007, 'applied' : 2007 },
         'url' : 'adopter-en-armenie',
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 18'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age_gap' : { 'min' : 18 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 14 },
             { 'year' : 2013, 'count' : 15 },
@@ -92,12 +74,9 @@ var countries = [
         'region' : 'europe',
         'clh' : { 'signed' : 2004, 'applied' : 2004 },
         'url' : 'adopter-en-azerbaidjan',
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            }
-        ],
+	    'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ]
+        },
         'warnings' : [
             "Avertissement : L’adoption internationale en Azerbaïdjan est légalement possible, toutefois : les enfants adoptables y sont très peu nombreux; les autorités privilégient, en règle générale, les candidats ayant un lien familial avec le pays. Dans ces conditions, une procédure d’adoption menée dans ce pays peut être longue, difficile et sans garantie quant à son aboutissement."
         ],
@@ -120,24 +99,12 @@ var countries = [
 	    'comments' : [
 		    "Le Bénin n'accepte pas la candidature de personnes ayant déjà des enfants biologiques. L’existence d’enfants adoptés ne fait pas obstacle à l’adoption."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-	        {
-                'type' : 'marriage',
-                'value' : 'min 5'
-            },
-            {
-                'type' : 'age',
-                'value' : 'at least one min 35'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ]
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 5 },
+            'age' : { 'at_least_one_min' : 35 },
+            'age_gap' : { 'min' : 15 }
+        }
     },
     {
         'name' : 'Bielorussie',
@@ -170,24 +137,12 @@ var countries = [
     	'warnings' : [
 	    	"Les célibataires sont acceptés. Néanmoins dans la pratique, ils ont peu de chance de bénéficier d’un apparentement."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-	        {
-                'type' : 'marriage',
-                'value' : 'before child birth'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 25 max 50'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ]
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'before_child_birth' : true },
+            'age' : { 'min' : 25, 'max' : 50 },
+            'age_gap' : { 'min' : 15 }
+        }
     },
     {
         'name' : 'Bosnie-Herzégovine',
@@ -204,20 +159,11 @@ var countries = [
         'region' : 'latam',
         'clh' : { 'signed' : 1993, 'applied' : 1999 },
         'url' : 'adopter-au-bresil',
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 18'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 16'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age' : { 'min' : 18},
+            'age_gap' : { 'min' : 16 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 13 },
             { 'year' : 2013, 'count' : 15 },
@@ -235,16 +181,10 @@ var countries = [
         'comments' : [
             "Les candidatures d'hommes célibataires peuvent être acceptées en fonction du projet, du profil de l'enfant et seulement s'il y a une présence féminine au quotidien."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'at least one min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age_gap' : { 'at_least_one_min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 34 },
             { 'year' : 2013, 'count' : 49 },
@@ -263,24 +203,12 @@ var countries = [
             "Pour l'adoption des enfants à besoins spécifiques (enfants âgés de 6 ans, ou porteur d'un handicap, ou atteint de maladie incurable) : les adoptants sont dispensés des critères définis à l'article 5 (durée de mariage, condition d'âge, écart d'âge avec l'enfant).",
             "Les postulants ne doivent pas avoir plus d’un enfant (biologique ou adopté)."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 5'
-            },
-            {
-                'type' : 'age',
-                'value' : 'at least one min 30 max 55'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'at least one min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple' ],
+            'marriage' : { 'min' : 5 },
+            'age' : { 'at_least_one_min' : 30, 'max' : 55 },
+            'age_gap' : { 'at_least_one_min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 20 },
             { 'year' : 2013, 'count' : 14 },
@@ -299,24 +227,12 @@ var countries = [
             "Pour l'adoption des enfants à besoins spécifiques (enfants âgés de 6 ans, ou porteur d'un handicap, ou atteint de maladie incurable) : les adoptants sont dispensés des critères définis à l'article 5 (durée de mariage, condition d'âge, écart d'âge avec l'enfant).",
             "Les postulants ne doivent pas avoir plus d’un enfant (biologique ou adopté)."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 5'
-            },
-            {
-                'type' : 'age',
-                'value' : 'at least one min 30'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 5 },
+            'age' : { 'at_least_one_min' : 30 },
+            'age_gap' : { 'min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 3 },
             { 'year' : 2013, 'count' : 1 },
@@ -347,24 +263,12 @@ var countries = [
             "La présence d’enfants biologiques au foyer des candidats fait obstacle à l’adoption au Cameroun. Ceci ne concerne pas les enfants déjà adoptés par les candidats à l’adoption.",
             "La priorité est réservée aux couples stériles."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 10'
-            },
-            {
-                'type' : 'age',
-                'value' : 'at least one min 35'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 10 },
+            'age' : { 'at_least_one_min' : 35 },
+            'age_gap' : { 'min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 30 },
             { 'year' : 2013, 'count' : 22 },
@@ -386,20 +290,12 @@ var countries = [
             "Si les candidats à l’adoption ont déjà des enfants de plus de 12 ans, ces derniers devront donner leur consentement au projet d’adoption de lnsei parents.",
             "Les adoptants doivent jouir pleinement de leurs droits civils et politiques, et être en mesure de satisfaire aux besoins économiques de l’adopté et offrir les garanties morales nécessaires pour l’éduquer."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 25 max 60'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 16 max 40'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 10 },
+            'age' : { 'min' : 25, 'max' : 60 },
+            'age_gap' : { 'min' : 16, 'max' : 40 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 12 },
             { 'year' : 2013, 'count' : 8 },
@@ -417,24 +313,12 @@ var countries = [
         'comments' : [
             "Très peu d’enfants chiliens sont confiés à l’adoption internationale et l’adoption d’enfants jeunes (moins de 3 ans) s’avère très difficile, ceux-ci étant prioritairement proposés à l’adoption nationale. Pour les enfants de plus de 3 ans, le délai d’attente pour une attribution d’enfant peut aller de 6 à 18 mois."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 2'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 25 max 60'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 20'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 2 },
+            'age' : { 'min' : 25, 'max' : 60 },
+            'age_gap' : { 'min' : 20 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 22 },
             { 'year' : 2013, 'count' : 4 },
@@ -453,24 +337,12 @@ var countries = [
             "S'il s'agit d'un deuxième marriage, la durée de mariage nécessaire est de 5 ans.",
             "Les candidats à l'adoptions ne doivent pas être porteur de maladie ni de handicap sérieux, doivent disposer d'un seuil minimum de ressource équivalent à 30 000$ annuels, être propriétaire d'un bien immobilier, avec un patrimoine (maison, voiture, épargne, ...) de 80 000$."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_woman'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 2'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 30'
-            },
-            {
-                'type' : 'age_gap_single_woman',
-                'value' : 'max 45'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_woman' ],
+            'marriage' : { 'min' : 2 },
+            'age' : { 'min' : 30 },
+            'age_gap' : { 'single_woman_max' : 45, 'min' : 20 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 63 },
             { 'year' : 2012, 'count' : 63 },
@@ -490,20 +362,11 @@ var countries = [
             "L’ICBF, autorité centrale colombienne, a pris la décision de suspendre l’enregistrement, à compter du 15 juillet 2013, de toute nouvelle candidature à l’adoption d’enfants de 0 à 6 ans et 11 mois, pour une durée d’au moins deux ans, le temps d’épurer la liste d’attente de familles déjà enregistrées auprès de ses services. Cette suspension concerne également les projets d’adoption de deux enfants dont l’aîné serait âgé de moins de 6 ans et 11 mois. (12/6/2015)",
             "Les célibataires sont acceptés, mais en pratique seulement pour des enfants grands. Pour les autorités colombiennes l’adoption par une personne célibataire en situation de concubinage est « préjudiciable aux intérêts du mineur ». Seuls les dossiers présentés par une personne vivant seule ou par un couple marié peuvent donc être communiqués aux autorités colombiennes."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_woman single_man'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 25'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age' : { 'min' : 25 },
+            'age_gap' : { 'min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 159 },
             { 'year' : 2013, 'count' : 84 },
@@ -521,28 +384,13 @@ var countries = [
         'comments' : [
             "Sauf dispense du Ministre de la Justice congolais, la présence d’enfants biologiques au foyer des adoptants fait obstacle à l’adoption. En revanche, la présence d’enfants adoptés antérieurement est tolérée."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_woman'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 5'
-            },
-            {
-                'type' : 'age_married',
-                'value' : 'at least one min 30'
-            },
-            {
-                'type' : 'age_single_womane',
-                'value' : 'min 35'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 20'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_woman' ],
+            'marriage' : { 'min' : 5 },
+            'age_married_couple' : { 'at_least_one_min' : 30 },
+            'age_single_woman' : { 'min' : 35 },
+            'age_gap' : { 'min' : 20 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 17 },
             { 'year' : 2013, 'count' : 19 },
@@ -579,20 +427,11 @@ var countries = [
             "En pratique, les candidatures de familles ayant déjà 4 enfants (biologiques ou adoptés) ne sont pas acceptées et les couples sans enfant sont choisis en priorité. Toutefois, les couples sans enfants au foyer ne doivent pas être mariés depuis plus de 12 ans.",
             "Les adoptants doivent disposer de ressources financières suffisantes et pouvoir garantir à l’enfant la liberté de religion et une éducation appropriée, et ne doivent pas être atteints d’un handicap physique." 
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 3'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 25 max 45'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple'],
+            'marriage' : { 'min' : 3 },
+            'age' : { 'min' : 25, 'max' : 45 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 4 },
             { 'year' : 2013, 'count' : 2 },
@@ -623,24 +462,12 @@ var countries = [
         'comments' : [
             "Les candidats sans enfant ou stériles sont prioritaires."
         ],
-	    'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_woman single_man'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 5'
-            },
-            {
-                'type' : 'age',
-                'value' : 'at least one min 30'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 5 },
+            'age' : { 'at_least_one_min' : 30 },
+            'age_gap' : { 'min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 34 },
             { 'year' : 2013, 'count' : 49 },
@@ -713,16 +540,16 @@ var countries = [
         'warnings' : [
             "A l’échelle nationale, l’Ethiopie devient de moins en moins favorable à l’adoption internationale. Cette tendance est particulièrement perceptible dans certaines régions du sud du pays. Cela se traduit par une forte inertie administrative au même moment où la décentralisation dans les régions des questions relatives à la protection de l’enfance ralentit également les procédures."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple'
-            },
-            {
-                'type' : 'age',
-                'value' : 'at least one min 25'
-            }
-        ],
+         'constraints' : {
+            'status' : [ 'married_couple' ],
+            'age' : { 'at_least_one_min' : 25 }
+        },
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 5 },
+            'age' : { 'at_least_one_min' : 30 },
+            'age_gap' : { 'min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 220 },
             { 'year' : 2013, 'count' : 140 },
@@ -739,28 +566,14 @@ var countries = [
         'comments' : [
             "L’adoption n’est permise qu’en l’absence de descendants biologiques. L’existence d’enfants adoptés ne fait pas obstacle à l’adoption, non plus que celle d’enfants biologiques nés postérieurement à l’accueil de l’enfant adopté au foyer des adoptants."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 5'
-            },
-            {
-                'type' : 'age_married',
-                'value' : 'at least one min 30'
-            },
-            {
-                'type' : 'age_single',
-                'value' : 'min 35'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 5 },
+            'age_married_couple' : { 'at_least_one_min' : 30 },
+            'age_single_man' : { 'min' : 35 },
+            'age_single_woman' : { 'min' : 35 },
+            'age_gap' : { 'min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 3 },
             { 'year' : 2013, 'count' : 9 },
@@ -812,24 +625,13 @@ var countries = [
         'region' : 'africa',
         'clh' : { 'signed' : 2003, 'applied' : 2004 },
         'url' : 'adopter-en-guinee',
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 5'
-            },
-            {
-                'type' : 'age_single',
-                'value' : 'min 30'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 5 },
+            'age_single_man' : { 'min' : 30 },
+            'age_single_woman' : { 'min' : 30 },
+            'age_gap' : { 'min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 36 },
             { 'year' : 2013, 'count' : 31 },
@@ -847,24 +649,12 @@ var countries = [
         'comments' : [
             "Si l’adoptant a déjà des enfants biologiques ou adoptés de 8 ans et plus, ces derniers doivent donner leur avis sur le projet d’adoption."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'  
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 5'
-            },
-            {
-                'type' : 'age',
-                'value' : 'at least one min 30 max 50'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 14'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 5 },
+            'age' : { 'at_least_one_min' : 30, 'max' : 50 },
+            'age_gap' : { 'min' : 14 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 49 },
             { 'year' : 2013, 'count' : 31 },
@@ -884,24 +674,12 @@ var countries = [
         'comments' : [
             "les adoptants doivent jouir de leurs droits civiques. Ils doivent être de bonne moralité et de bonne réputation et prouver qu’ils ont la capacité d’éduquer et de pourvoir aux besoins de l’adopté."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'  
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 3'
-            },
-            {
-                'type' : 'age',
-                'value' : '25 max 50'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 3 },
+            'age' : { 'min' : 25, 'max' : 50 },
+            'age_gap' : { 'min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 0 },
             { 'year' : 2013, 'count' : 0 },
@@ -920,16 +698,10 @@ var countries = [
             "Les projets d’adoption suivants seront traités prioritairement par les autorités hongroises : <br/> - Demande d’adoption d’un enfant de moins de 7 ans présentant des problèmes importants de santé physique et/ou mentale et/ou des troubles du comportement<br/> - Demande d’adoption d’enfants de plus de 10 ans ou pour des fratries de 3 enfants ou plus, même de moins de 7 ans.<br/> - Demande d’adoption par des candidats hongrois ou des couples franco-hongrois résidant en France avec un projet pour un enfant âgé jusqu’à 5 ans révolus.",
             "L’adoption est ouverte aux personnes célibataires mais une priorité est accordée par les autorités hongroises aux couples mariés "
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'  
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 16 max 45'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age' : { 'min' : 16, 'max' : 45 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 1 },
             { 'year' : 2013, 'count' : 0 },
@@ -951,20 +723,12 @@ var countries = [
             "Les candidats à l’adoption qui souhaitent adopter un enfant à besoins spécifiques sont prioritaires."
             // TODO Table of cumulated age ?
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'  
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 2'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 25'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'marriage' : { 'min' : 2 },
+            'age' : { 'min' : 25 },
+            'age_gap' : { 'min' : 25 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 14 },
             { 'year' : 2013, 'count' : 20 },
@@ -983,20 +747,12 @@ var countries = [
             "L'adoption est précédée d'une période de placement probatoire de l’enfant de six mois, sous le contrôle des services locaux du ministère des Affaires sociales.", 
             "Les candidats doivent être de la même relifion que l'enfant (Islam 87%, Protestantisme 7%, Catholicisme 3%)."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple'  
-            },
-            {
-                'type' : 'marriage',
-                'value' : 'min 5'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 30 max 45'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple' ],
+            'marriage' : { 'min' : 5 },
+            'age' : { 'min' : 30, 'max' : 45 },
+            'age_gap' : { 'min' : 25 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 1 },
             { 'year' : 2013, 'count' : 1 },
@@ -1016,16 +772,10 @@ var countries = [
             "les candidatures de célibataires femmes ne seraient, en pratique, plus acceptées.",
             "Ne peuvent adopter les personnes « qui professent une orientation sexuelle non traditionnelle» (article 91 du nouveau Code du mariage et de la famille)."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_woman'  
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 16 max 45'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_woman' ],
+            'age_gap' : { 'min' : 16, 'max' : 45 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 0 },
             { 'year' : 2013, 'count' : 3 },
@@ -1042,20 +792,12 @@ var countries = [
         'warnings' : [
             "Attention : Les ressortissants non-kosovars doivent obtenir l’accord préalable de l’organe kosovar en charge des affaires de la santé et de la politique sociale."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_woman single_man'  
-            },
-            {
-                'type' : 'age_married',
-                'value' : 'at least one min 25'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 21'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age_married_couple' : { 'min' : 21, 'at_least_one_min' : 25 },
+            'age_single_man' : { 'min' : 21 },
+            'age_single_woman' : { 'min' : 21 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 0 },
             { 'year' : 2013, 'count' : 0 },
@@ -1079,20 +821,11 @@ var countries = [
         'region' : 'asia',
         'clh' : { 'signed' : 2002, 'applied' : 2002 },
         'url' : 'adopter-en-lettonie',
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_woman'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 25'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 18'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_woman' ],
+            'age' : { 'min' : 25 },
+            'age_gap' : { 'min' : 18 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 37 },
             { 'year' : 2013, 'count' : 25 },
@@ -1112,16 +845,10 @@ var countries = [
         'comments' : [
             "Les candidatures de personnes divorcées ne sont pas acceptées."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 15'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple' ],
+            'age_gap' : { 'min' : 15 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 3 },
             { 'year' : 2013, 'count' : 5 },
@@ -1139,20 +866,11 @@ var countries = [
         'warnings' : [
             "Seuls les candidats répondant aux situations suivantes pourront engager une procédure d’adoption en Lituanie :<br/>- les couples mariés citoyens de la République de Lituanie résidant de façon permanente sur le territoire d’un Etat étranger,<br/>- les couples mariés dont l’un des conjoints est citoyen de la République de Lituanie,<br/>- les couples mariés, quelle que soit leur nationalité, souhaitant adopter un enfant à besoins spécifiques."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple'
-            },
-            {
-                'type' : 'age',
-                'value' : 'min 18 max 50'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 18'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple'],
+            'age' : { 'min' : 18, 'max' : 50 },
+            'age_gap' : { 'min' : 18 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 9 },
             { 'year' : 2013, 'count' : 2 },
@@ -1173,20 +891,11 @@ var countries = [
             "Aucun organisme français autorisé et habilité pour l’adoption n’est accrédité en Macédoine.",
             "Depuis 2009, aucune adoption d'enfant venant de Macédoine par des candidats français n'a été réalisé."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_man single_woman'
-            },
-            {
-                'type' : 'age',
-                'value' : 'max 45'
-            },
-            {
-                'type' : 'age_gap',
-                'value' : 'min 18'
-            }
-        ]
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age' : { 'max' : 45 },
+            'age_gap' : { 'min' : 18 }
+        },
     },
     {
         'name' : 'Madagascar',
@@ -1197,16 +906,10 @@ var countries = [
         'comments' : [
             "Les couples mariés avec enfants sont acceptés. Toutefois, ils ne doivent pas avoir, au jour de l’adoption, plus de trois enfants à charge, en comptant le ou les enfants adoptés."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple'
-            },
-            {
-                'type' : 'age',
-                'value' : 'at least one min 30'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple' ],
+            'age' : { 'at_least_one_min' : 30 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 31 },
             { 'year' : 2013, 'count' : 33 },
@@ -1233,16 +936,10 @@ var countries = [
         'comments' : [
             "Seules les candidatures de personnes sans enfants sont acceptés."
         ],
-        'constraints' : [
-            {
-                'type' : 'status',
-                'value' : 'married_couple single_woman single_man'
-            },
-            {
-                'type' : 'age',
-                'value' : 'at least one min 30'
-            }
-        ],
+        'constraints' : {
+            'status' : [ 'married_couple', 'single_man', 'single_woman' ],
+            'age' : { 'at_least_one_min' : 30 }
+        },
         'stats' : [
             { 'year' : 2012, 'count' : 33 },
             { 'year' : 2013, 'count' : 2 },
@@ -1260,7 +957,11 @@ var countries = [
         'warnings' : [
             "Aucun dossier ne sera désormais accepté et transmis par la Mission de l’Adoption Internationale."
         ],
-        'constraints' : [
+        'constraints' : {
+            'status' : [ 'married_couple' ],
+            'age_gap' : { 'min' : 15 }
+        },
+        'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1290,7 +991,7 @@ var countries = [
         'comments' : [
             "Les exigences concernant l’âge des postulants à l’adoption sont fixées par les codes civils de chaque État de même que l’âge minimum pour adopter (à conjuguer avec les exigences de la loi française en la matière)."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_man single_woman'
@@ -1325,7 +1026,7 @@ var countries = [
             "Ne peuvent adopter les personnes qui sont atteintes de tuberculose ou de maladie mentale ou du SIDA, s’adonnent à la consommation d’alcool ou de stupéfiants, ont été condamnées à plusieurs reprises dans le passé, sont en détention, seraient motivées par le profit.",
             "Les adoptants ayant déjà adopté un enfant ressortissant de Mongolie ne peuvent procéder à l’adoption d’un autre enfant avant un délai d’un an à compter de la remise officielle de l’enfant. Cette restriction ne s’applique pas dans le cas de l’adoption de fratries. "
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_woman'
@@ -1365,7 +1066,7 @@ var countries = [
         'comments' : [
             "Les couples ayant des enfants biologiques ne peuvent adopter au Niger."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1395,7 +1096,7 @@ var countries = [
         'comments' : [
             "Seuls des enfants de sexe masculin pourront être confiés à des hommes célibataires, divorcés ou veufs et des enfants de sexe féminin à des femmes célibataires, divorcées ou veuves."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_man single_woman'
@@ -1430,7 +1131,7 @@ var countries = [
             "L’adoption internationale en Ouzbékistan est légalement possible. Toutefois :<br/>- les enfants adoptables y sont très peu nombreux ;<br/>- l’adoption internationale est subsidiaire ;<br/>- les autorités privilégient, en règle générale, les candidats ayant un lien familial avec le pays.",
             "Dans ces conditions, une procédure d’adoption menée dans ce pays peut être longue, difficile et sans garantie quant à son aboutissement."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1456,7 +1157,7 @@ var countries = [
             "Les couples mariés ayant déjà 2 enfants ne peuvent adopter que des enfants âgés de plus de 5 ans ou souffrant d’un handicap.",
             "Seuls des enfants de plus de 8 ans ou souffrant d’un handicap sont proposés aux candidats célibataires."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_man single_woman'
@@ -1494,7 +1195,7 @@ var countries = [
             "Les candidats doivent être pratiquants et présenter un témoignage de moralité, rédigé par une autorité religieuse locale, attestant de leur pratique religieuse.",
             "Les candidats doivent attester par certificat médical :<br/>- qu’ils ne sont pas atteints des maladies ou handicaps (référencées spécifiquement par l’ICAB),<br/>- qu’ils sont en bonne santé physique et mentale. Ils devront à cette fin se soumettre à des tests psychologiques / psychiatriques prescrit par l’ICAB prouvant qu’ils ne présentent pas certaines pathologies mentales."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_man single_woman'
@@ -1531,7 +1232,7 @@ var countries = [
             "Une différence d’âge convenable doit exister entre l’adoptant et l’adopté.",
             "La loi ne prévoit pas d’âge maximum ou minimum pour adopter. Cependant dans la pratique, la préférence est donnée aux femmes de moins de 40 ans et aux hommes de moins de 45 ans."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_man single_woman'
@@ -1557,7 +1258,7 @@ var countries = [
         'comments' : [
             "En raison des conditions tenant à la sécurité, particulièrement dégradées en République centrafricaine (y compris dans la capitale), les candidats à l'adoption sont invités à consulter les «Conseils aux voyageurs» sur le site du Ministère des Affaires étrangères, avant tout déplacement dans le pays."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_man single_woman'
@@ -1596,7 +1297,7 @@ var countries = [
         'comments' : [
             "En raison des conditions tenant à la sécurité, particulièrement dégradées en République centrafricaine (y compris dans la capitale), les candidats à l'adoption sont invités à consulter les «Conseils aux voyageurs» sur le site du Ministère des Affaires étrangères, avant tout déplacement dans le pays."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1641,7 +1342,7 @@ var countries = [
             "Seules les candidatures de couples mariés hétérosexuels sont acceptées.",
             "Les personnes atteintes d’une maladie ou d’un handicap, ne sont pas acceptées."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1679,7 +1380,7 @@ var countries = [
         'comments' : [
             "Sauf dispense du Président de la République, l’adoptant ne doit avoir, au jour de sa requête, ni enfant ni descendant légitime. En cas d’adoption conjointe par deux époux, il suffit qu’ils n’aient pas d’enfant issu de leur union."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1715,13 +1416,10 @@ var countries = [
         'region' : 'europe',
         'url' : 'adopter-en-slovaquie',
         'clh' : { 'signed' : 1999, 'applied' : 2001 },
-        'warnings' : [
-            
-        ],
         'comments' : [
             "Les autorités Sri lankaises ont récemment informé le SAI qu’aucun enfant en bas âge n’était actuellement proposé à l’adoption internationale au Sri Lanka, ces enfants étant adoptés au niveau national. L’Autorité centrale du Sri Lanka ne souhaite plus recevoir aucun nouveau dossier, excepté ceux transmis par les opérateurs français pour des enfants présentant des pathologies."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_man single_woman'
@@ -1745,7 +1443,7 @@ var countries = [
         'comments' : [
             "L’adoption par des célibataires est possible mais les autorités slovaques privilégient les couples mariés."
         ],
-	    'constraints' : [
+	    'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_man single_woman'
@@ -1787,7 +1485,7 @@ var countries = [
         'comments' : [
             "Les adoptants ne doivent avoir au jour de la requête ni enfants, ni descendants légitimes."
         ],
-        'constraints' : [
+        'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1825,7 +1523,7 @@ var countries = [
         'comments' : [
             "Les textes thaïlandais ne comportent aucune disposition relative à l’existence d’enfants dans le foyer des candidats à l’adoption. Toutefois, dans la pratique, les candidatures des couples ayant déjà 2 enfants ou plus ont de faibles chances d’être retenues par le DCY, sauf dans l’hypothèse des projets d’adoption concernant des enfants à besoins spécifiques."
         ],
-        'constraints' : [
+        'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1857,7 +1555,7 @@ var countries = [
         'region' : 'africa',
         'url' : 'adopter-au-togo',
         'clh' : { 'signed' : 2009, 'applied' : 2010 },
-        'constraints' : [
+        'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1888,7 +1586,7 @@ var countries = [
             "Les candidats à l’adoption doivent être de nationalité tunisienne et de religion musulmane.",
             "Les demandes d’adoption émanant de personnes étrangères ou même tunisiennes non musulmanes ne peuvent être recevables. Le critère religieux et de nationalité tunisienne est exigé pour les deux membres du couple. Ce principe peut être assoupli dès lors que la famille réside en Tunisie et que le chef de famille remplit ces conditions ou que les deux membres du couple sont musulmans résidant dans un pays arabe et musulman ou si le candidat à l’adoption a des attaches familiales tunisiennes."
         ],
-        'constraints' : [
+        'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1936,7 +1634,7 @@ var countries = [
             "Les candidats désirant adopter un enfant invalide seront prioritaires.",
             "Le Centre des Adoptions (SDA) ne peut pas répondre positivement à l’orientation des projets d’adoption des candidats français, tournés exclusivement vers des enfants en bas âge avec des problèmes de santé mineurs. Selon les statistiques en sa possession, il est pratiquement impossible au SDA de satisfaire les demandes d’adoption d’enfants de moins de 6 ans sans problème de santé. Les enfants de moins de 6 ans sont peu nombreux et souffrent de graves problèmes de santé (infection au VIH, hépatite C, troubles mentaux, trisomie)."
         ],
-        'constraints' : [
+        'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple'
@@ -1981,7 +1679,7 @@ var countries = [
         'region' : 'asia',
         'clh' : { 'signed' : 2010, 'applied' : 2012 },
         'url' : 'adopter-au-vietnam',
-        'constraints' : [
+        'constraints_' : [
             {
                 'type' : 'status',
                 'value' : 'married_couple single_man single_woman'
