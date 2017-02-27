@@ -1,6 +1,7 @@
 var organizations = [
     {
         'name' : 'AFA',
+        'title' : 'Agence Française de l\'Adoption',
         'url' : 'http://www.agence-adoption.fr/',
         'countries' : [ 'BF', 'MG', 'ML', 'TG', // Afrique
                         'CL', 'CO', 'HT', 'MX', 'PE', 'DO', //Latam
@@ -101,6 +102,7 @@ var organizations = [
     },
     {
         'name' : 'COFA - Bordeaux',
+        'title' : 'Confédération Française pour l\'Adoption',
         'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/cofa-bordeaux-comite-de-bordeaux',
         'countries' : [ 'CO' ],
         'counties' :  [ '01', '02', '03', '05', '06', '07', '08', '09', 
@@ -116,6 +118,7 @@ var organizations = [
     },
     {
         'name' : 'COFA - Brive',
+        'title' : 'Confédération Française pour l\'Adoption',
         'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/cofa-brive',
         'countries' : [ 'HT', 'MG' ],
         'counties' :  [ '01', '02', '03', '05', '06', '07', '08', '09', 
@@ -131,6 +134,7 @@ var organizations = [
     },
     {
         'name' : 'COFA - Cognac',
+        'title' : 'Confédération Française pour l\'Adoption',
         'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/cofa-cognac',
         'countries' : [ 'BR', 'HT', 'VN' ],
         'counties' :  [ '01', '02', '03', '04', '05', '06', '07', '08', '09', 
@@ -147,6 +151,7 @@ var organizations = [
     },
     {
         'name' : 'COFA - Lille',
+        'title' : 'Confédération Française pour l\'Adoption',
         'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/cofa-lille',
         'countries' : [ 'BO', 'BR', 'HT' ],
         'counties' :  [ '01', '02', '03', '04', '05', '06', '07', '08', '09', 
@@ -163,6 +168,7 @@ var organizations = [
     },
     {
         'name' : 'COFA - Lyon',
+        'title' : 'Confédération Française pour l\'Adoption',
         'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/cofa-lyon',
         'countries' : [ 'CO', 'HT' ],
         'counties' :  [ '01', '02', '03', '05', '06', '07', '08', '09', 
@@ -178,6 +184,7 @@ var organizations = [
     },
     {
         'name' : 'COFA - Marseille',
+        'title' : 'Confédération Française pour l\'Adoption',
         'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/cofa-marseille',
         'countries' : [ 'CN', 'IN', 'NP', 'VN' ],
         'counties' :  [ '01', '02', '03', '04', '05', '06', '07', '08', '09', 
@@ -193,6 +200,7 @@ var organizations = [
     },
     {
         'name' : 'COFA - Montauban',
+        'title' : 'Confédération Française pour l\'Adoption',
         'url' : 'http://www.diplomatie.gouv.fr/fr/adopter-a-l-etranger/les-acteurs-de-l-adoption-internationale/les-operateurs-de-l-adoption-internationale/organismes-autorises-pour-l-adoption-oaa/article/cofa-montauban',
         'countries' : [ 'PL' ],
         'counties' :  [ '01', '02', '03', '04', '05', '06', '07', '08', '09', 
@@ -465,7 +473,7 @@ var organizations = [
                         '30', '35', '36', '40', '44', '46', '54', '56', '59', 
                         '60', '62', '63', '65', '79', '85', '86', '87', 
                         '93', '95', '973']
-    },
+    }/*, Censure
     {
         'name' : 'Vivre en Famille',
         'url' : 'http://www.vivre-en-famille.fr/',
@@ -480,5 +488,5 @@ var organizations = [
                         '70', '71', '72', '74', '75', '76', '77', '78', '79', 
                         '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', 
                         '90', '91', '92', '93', '94', '95', '974']
-    }
+    }*/
 ];

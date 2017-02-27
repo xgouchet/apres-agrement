@@ -125,7 +125,7 @@ function displayResults() {
 
     Jaml.register('org', function(org) {
         span({cls:'chip blue darken-3'},
-            a({cls:'white-text', href : org.url, target:'_blank'},org.name)
+            a({cls:'white-text', href : org.url, target:'_blank', title : (org.title ? org.title : "")}, org.name)
         );
     });
 
@@ -170,9 +170,15 @@ function processCountry(country) {
         return true;
     });
     if (orgs.length == 0){
-        // console.log("Orgs check × " + country.name + " / " + country.code);
         return;
     }
+
+    // APPO check
+    var npos = []
+    npos = appos.filter(function(appo){
+        console.log("check " + appo.name);
+        return (appo.countries.indexOf(country.code) >= 0);
+    });
 
     // region check
     if (getParamByName('region_' + country.region) != 'on') {
@@ -181,10 +187,10 @@ function processCountry(country) {
     }
 
     // Ok, we can display it
-    displayCountry(country, orgs);
+    displayCountry(country, orgs, npos);
 }
 
-function displayCountry(country, orgs) {
+function displayCountry(country, orgs, npos) {
 
     div = document.createElement('div');
     if (country.clh) {
@@ -198,10 +204,10 @@ function displayCountry(country, orgs) {
     content.className = 'card-content';
     div.appendChild(content);
 
-    // Main content
+    // MAIN
     content.innerHTML = Jaml.render('country', country);
 
-    // Warnings
+    // WARNINGS
     if (country.warnings) {
         content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Avertissements</span>');
         country.warnings.forEach(function (warning) {
@@ -209,7 +215,7 @@ function displayCountry(country, orgs) {
         });
     }
 
-    // Comments
+    // COMMENTS
     if (country.comments) {
         content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Informations</span>');
         country.comments.forEach(function (comment) {
@@ -217,7 +223,7 @@ function displayCountry(country, orgs) {
         });
     }
 
-    // Stats
+    // STATS
     if (country.stats) {
         content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Statistiques</span>');
         stats = document.createElement('ul');
@@ -234,15 +240,40 @@ function displayCountry(country, orgs) {
         });
     }
 
+
+    // ORGS 
+    orgsDiv = document.createElement('div');
+    content.appendChild(orgsDiv);
+    orgsDiv.className = "row";
+
+    oaasDiv = document.createElement('div');
+    orgsDiv.appendChild(oaasDiv);
+    oaasDiv.className = "col l6 m12";
+
     // OAA chips
-    content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Organismes Agréés pour l\'Adoption</span>');
+    oaasDiv.insertAdjacentHTML('beforeend', '<span class="card-title italic">Organismes Agréés pour l\'Adoption</span>');
     orgsBar = document.createElement('div');
-    content.appendChild(orgsBar);
+    orgsBar.style = "padding : 0px 16px";
+    oaasDiv.appendChild(orgsBar);
     orgs.forEach(function(org) {
         orgsBar.insertAdjacentHTML('beforeend', Jaml.render('org', org));
     });
 
+    // APPO chips
+    console.log(npos);
+    if (npos.length > 0) {
+        apposDiv = document.createElement('div');
+        orgsDiv.appendChild(apposDiv);
+        apposDiv.className = "col l6 m12";
 
+        apposDiv.insertAdjacentHTML('beforeend', '<span class="card-title italic">Associations par Pays d\'Origine</span>');
+        apposBar = document.createElement('div');
+        apposBar.style = "padding : 0px 16px";
+        apposDiv.appendChild(apposBar);
+        npos.forEach(function(appo) {
+            apposBar.insertAdjacentHTML('beforeend', Jaml.render('org', appo));
+        });
+    }
 }
 
 function verifyConstraints(constraints) {
