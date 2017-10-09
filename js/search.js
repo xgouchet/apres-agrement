@@ -1,6 +1,17 @@
 
 window.document.body.onload = createSearchForm
 
+var st = [
+            '',                                                     // 0
+            'un couple marié',                                      // 1
+            'une femme célibataire',                                // 2
+            'un couple marié ou une femme célibataire',             // 3
+            'un homme célibataire',                                 // 4
+            'un couple marié ou un homme célibataire',              // 5
+            'un homme ou une femme célibataire',                    // 6
+            'un couple marié, ou un homme ou une femme célibataire' // 7
+         ];
+
 var status = "";
 var marriage_duration = 0;
 var age = 0;
@@ -17,11 +28,8 @@ function createSearchForm() {
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
-        // console.log('State : ' + xmlHttp.readyState + '/' + xmlHttp.status);
-
         if (xmlHttp.readyState == 4 && (xmlHttp.status == 200 || xmlHttp.status == 0)) {
             root.innerHTML = xmlHttp.responseText;
-            // console.log('Form loaded !');
             handleParams(root);
         }
     };
@@ -138,10 +146,15 @@ function displayResults() {
 
     Jaml.register('stat', function(stat) {
         li(
+            {cls:'collection-item'},
             strong('' + stat.year),
             ' : ' ,
             span({cls : stat.delta == '↘' ? 'red-text darken-4' : stat.delta == '↗' ? 'green-text darken-4' : ''}, stat.delta + '&nbsp;' + stat.count)
         );
+    });
+
+    Jaml.register('item', function(item) {
+        li({cls:'collection-item'},item);
     });
 
     countries.forEach(processCountry);
@@ -176,7 +189,6 @@ function processCountry(country) {
     // APPO check
     var npos = []
     npos = appos.filter(function(appo){
-        console.log("check " + appo.name);
         return (appo.countries.indexOf(country.code) >= 0);
     });
 
@@ -223,12 +235,31 @@ function displayCountry(country, orgs, npos) {
         });
     }
 
+    infoRowDiv = document.createElement('div');
+    content.appendChild(infoRowDiv);
+    infoRowDiv.className = "row";
+
+    // CONSTRAINTS
+    if (country.constraints) {
+        constraintsDiv = document.createElement('div');
+        constraintsDiv.className = 'col l7 m12';
+        infoRowDiv.appendChild(constraintsDiv);
+        constraintsDiv.insertAdjacentHTML('beforeend', '<span class="card-title italic">Réglementation</span>');
+        constraints = document.createElement('ul');
+        constraints.className = 'collection';
+        constraintsDiv.appendChild(constraints);
+        renderConstraints(country.constraints, constraints);
+    }
+
     // STATS
     if (country.stats) {
-        content.insertAdjacentHTML('beforeend', '<span class="card-title italic">Statistiques</span>');
+        statsDiv = document.createElement('div');
+        statsDiv.className = 'col l5 m12';
+        infoRowDiv.appendChild(statsDiv);
+        statsDiv.insertAdjacentHTML('beforeend', '<span class="card-title italic">Nombre d’enfants adoptés</span>');
         stats = document.createElement('ul');
-        stats.className = 'statistics';
-        content.appendChild(stats);
+        stats.className = 'collection';
+        statsDiv.appendChild(stats);
         var previous = undefined;
         country.stats.forEach(function(stat){
             if (previous) {
@@ -251,7 +282,7 @@ function displayCountry(country, orgs, npos) {
     oaasDiv.className = "col l6 m12";
 
     // OAA chips
-    oaasDiv.insertAdjacentHTML('beforeend', '<span class="card-title italic">Organismes Agréés pour l\'Adoption</span>');
+    oaasDiv.insertAdjacentHTML('beforeend', '<span class="card-title italic">Organismes</span>');
     orgsBar = document.createElement('div');
     orgsBar.style = "padding : 0px 16px";
     oaasDiv.appendChild(orgsBar);
@@ -260,13 +291,12 @@ function displayCountry(country, orgs, npos) {
     });
 
     // APPO chips
-    console.log(npos);
     if (npos.length > 0) {
         apposDiv = document.createElement('div');
         orgsDiv.appendChild(apposDiv);
         apposDiv.className = "col l6 m12";
 
-        apposDiv.insertAdjacentHTML('beforeend', '<span class="card-title italic">Associations par Pays d\'Origine</span>');
+        apposDiv.insertAdjacentHTML('beforeend', '<span class="card-title italic">Associations</span>');
         apposBar = document.createElement('div');
         apposBar.style = "padding : 0px 16px";
         apposDiv.appendChild(apposBar);
@@ -274,6 +304,69 @@ function displayCountry(country, orgs, npos) {
             apposBar.insertAdjacentHTML('beforeend', Jaml.render('org', appo));
         });
     }
+}
+
+function renderConstraints(constraints, parent) {
+    // Check status
+    if (constraints.status) {
+        var c = 0;
+        if (constraints.status.indexOf('married_couple') >= 0){
+            c += 1;
+        }
+        if (constraints.status.indexOf('single_woman') >= 0){
+            c += 2;
+        }
+        if (constraints.status.indexOf('single_man') >= 0){
+            c += 4;
+        }
+        parent.insertAdjacentHTML('beforeend', Jaml.render('item', "L'adoption peut être demandée par " + st[c] + "."));
+    }
+
+    // Mariage duration
+    if (constraints.marriage && constraints.marriage.min) {
+        parent.insertAdjacentHTML('beforeend', Jaml.render('item', "Les couples mariés doivent être mariés depuis plus de " + constraints.marriage.min + " ans."));
+    }
+
+    // Age
+    if (constraints.age){
+        parent.insertAdjacentHTML('beforeend', Jaml.render('item', "Les candidats doivent être âgés" + ageConstraint(constraints.age) + "."));
+    } else {
+        if (constraints.age_married_couple) {
+            parent.insertAdjacentHTML('beforeend', Jaml.render('item', "Pour les couples mariés, les candidats doivent être âgés" + ageConstraint(constraints.age_married_couple) + "."));
+        }
+        if (constraints.age_single_woman) {
+            parent.insertAdjacentHTML('beforeend', Jaml.render('item', "Pour les femmes célibataires, les candidates doivent être âgés" + ageConstraint(constraints.age_single_woman) + "."));
+        }
+        if (constraints.age_single_man) {
+            parent.insertAdjacentHTML('beforeend', Jaml.render('item', "Pour les hommes célibataires, les candidats doivent être âgés" + ageConstraint(constraints.age_single_man) + "."));
+        }
+    }
+
+    // Age gap
+    if (constraints.age_gap) {
+        
+    }
+}
+
+function ageConstraint(age) {
+    var c = "";
+    var et = false;
+    if (age.at_least_one_min) {
+        et = true;
+        c += " l'un au moins de plus de " + age.at_least_one_min + " ans";
+        if (age.min) {
+            c += " l'autre de plus de " + age.min + " ans";
+        }
+    } else if (age.min) {
+        et = true;
+        c += " de plus de " + age.min + " ans";
+    }
+
+    if (age.max) {
+        if (et) c += ", et";
+        c += " de moins de " + age.max + " ans";
+    }
+    return c;
 }
 
 function verifyConstraints(constraints) {
@@ -315,7 +408,7 @@ function verifyConstraints(constraints) {
         }
     }
 
-    // Check age_gap (which implies a min/max age
+    // Check age_gap (which implies a min/max age)
     if (constraints.age_gap){
         if (constraints.age_gap.at_least_one_min && age_max < constraints.age_gap.at_least_one_min) {
             return false;
